@@ -1,0 +1,23 @@
+{
+    "id": "headphones",
+    "name": "Headphones",
+    "description": "Control Bluetooth headphones from the Control Center: noise cancelling, equalizer, game mode, LDAC and touch controls, with battery levels and the live codec. Supports UGREEN HiTune Max5 and Samsung Galaxy Buds3",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "author": "ilyamen",
+    "capabilities": ["control-center", "dankbar-widget"],
+    "components": {
+        "daemon": "./HeadphonesService.qml",
+        "widget": "./HeadphonesWidget.qml"
+    },
+    "settings": "./HeadphonesSettings.qml",
+    "startupCheck": "./StartupCheck.qml",
+    "icon": "headphones",
+    "requires_dms": ">=1.6.3",
+    "dependencies": ["python3"],
+    "permissions": [
+        "settings_read",
+        "settings_write",
+        "process"
+    ]
+}

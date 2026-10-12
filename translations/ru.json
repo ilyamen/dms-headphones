@@ -1,0 +1,269 @@
+{
+    "Adaptive": {
+        "Adaptive": "Адаптивный"
+    },
+    "Ambient sound": {
+        "Ambient sound": "Окружающие звуки"
+    },
+    "Ambient volume": {
+        "Ambient volume": "Громкость окружения"
+    },
+    "ANC": {
+        "ANC": "Шумодав"
+    },
+    "ANC button": {
+        "ANC button": "Кнопка ANC"
+    },
+    "Balanced": {
+        "Balanced": "Сбалансированный"
+    },
+    "Bass": {
+        "Bass": "Бас"
+    },
+    "Bass boost": {
+        "Bass boost": "Усиление басов"
+    },
+    "Cannot reach the headset": {
+        "Cannot reach the headset": "Не удаётся связаться с наушниками"
+    },
+    "Case": {
+        "Case": "Кейс"
+    },
+    "Classical": {
+        "Classical": "Классика"
+    },
+    "Clear": {
+        "Clear": "Чистый"
+    },
+    "Connect supported headphones over Bluetooth to control them.": {
+        "Connect supported headphones over Bluetooth to control them.": "Подключите поддерживаемые наушники по Bluetooth, чтобы управлять ими."
+    },
+    "Connecting…": {
+        "Connecting…": "Подключение…"
+    },
+    "Double pinch": {
+        "Double pinch": "Двойное сжатие"
+    },
+    "Double press": {
+        "Double press": "Двойное нажатие"
+    },
+    "Dynamic": {
+        "Dynamic": "Динамичный"
+    },
+    "Electronic": {
+        "Electronic": "Электроника"
+    },
+    "English": {
+        "English": "English"
+    },
+    "Equalizer": {
+        "Equalizer": "Эквалайзер"
+    },
+    "Game": {
+        "Game": "Игра"
+    },
+    "Game mode": {
+        "Game mode": "Игровой режим"
+    },
+    "Gestures": {
+        "Gestures": "Жесты"
+    },
+    "Headphones": {
+        "Headphones": "Наушники"
+    },
+    "High": {
+        "High": "Громко"
+    },
+    "High-resolution audio. Switching reconnects the audio for a few seconds.": {
+        "High-resolution audio. Switching reconnects the audio for a few seconds.": "Звук высокого разрешения. При переключении звук на несколько секунд переподключится."
+    },
+    "idle": {
+        "idle": "не играет"
+    },
+    "Jazz": {
+        "Jazz": "Джаз"
+    },
+    "Keep noise cancelling on when only one bud is in": {
+        "Keep noise cancelling on when only one bud is in": "Не выключать шумоподавление, когда в ухе только один наушник"
+    },
+    "kHz": {
+        "kHz": "кГц"
+    },
+    "L": {
+        "L": "Л"
+    },
+    "Language of the announcements the headset plays": {
+        "Language of the announcements the headset plays": "Язык, на котором наушники озвучивают режимы"
+    },
+    "LDAC": {
+        "LDAC": "LDAC"
+    },
+    "Left bud": {
+        "Left bud": "Левый"
+    },
+    "Light": {
+        "Light": "Слабая"
+    },
+    "Long press": {
+        "Long press": "Удержание"
+    },
+    "Low": {
+        "Low": "Тихо"
+    },
+    "Lower audio latency": {
+        "Lower audio latency": "Меньше задержка звука"
+    },
+    "Medium": {
+        "Medium": "Средняя"
+    },
+    "Multipoint": {
+        "Multipoint": "Два устройства сразу"
+    },
+    "No supported headphones connected": {
+        "No supported headphones connected": "Поддерживаемые наушники не подключены"
+    },
+    "Noise cancelling": {
+        "Noise cancelling": "Шумоподавление"
+    },
+    "Noise cancelling with one earbud": {
+        "Noise cancelling with one earbud": "Шумоподавление с одним наушником"
+    },
+    "Noise control": {
+        "Noise control": "Шумоподавление"
+    },
+    "None": {
+        "None": "Нет"
+    },
+    "Normal": {
+        "Normal": "Обычный"
+    },
+    "Not connected": {
+        "Not connected": "Не подключены"
+    },
+    "Off": {
+        "Off": "Выкл"
+    },
+    "Original": {
+        "Original": "Оригинал"
+    },
+    "Other": {
+        "Other": "Прочее"
+    },
+    "Pinch": {
+        "Pinch": "Сжатие"
+    },
+    "Pinch and hold": {
+        "Pinch and hold": "Сжатие с удержанием"
+    },
+    "Pinch and swipe gestures on the stems": {
+        "Pinch and swipe gestures on the stems": "Сжатия и свайпы по ножкам наушников"
+    },
+    "Pop": {
+        "Pop": "Поп"
+    },
+    "Python 3 and busctl are required": {
+        "Python 3 and busctl are required": "Нужны Python 3 и busctl"
+    },
+    "R": {
+        "R": "П"
+    },
+    "Right bud": {
+        "Right bud": "Правый"
+    },
+    "Rock": {
+        "Rock": "Рок"
+    },
+    "Seamless connection": {
+        "Seamless connection": "Бесшовное подключение"
+    },
+    "Single press": {
+        "Single press": "Одно нажатие"
+    },
+    "Soft": {
+        "Soft": "Мягкий"
+    },
+    "Spatial audio": {
+        "Spatial audio": "Объёмный звук"
+    },
+    "Stay connected to two devices at once": {
+        "Stay connected to two devices at once": "Подключение к двум устройствам одновременно"
+    },
+    "Strength": {
+        "Strength": "Сила"
+    },
+    "Strong": {
+        "Strong": "Сильная"
+    },
+    "Supported: UGREEN HiTune Max5, Max5c; Samsung Galaxy Buds3. Connect one over Bluetooth to change its settings.": {
+        "Supported: UGREEN HiTune Max5, Max5c; Samsung Galaxy Buds3. Connect one over Bluetooth to change its settings.": "Поддерживаются UGREEN HiTune Max5 и Max5c, Samsung Galaxy Buds3. Подключите наушники по Bluetooth, чтобы изменить их настройки."
+    },
+    "Swipe for volume": {
+        "Swipe for volume": "Свайп для громкости"
+    },
+    "Switch between Samsung devices signed in to the same account": {
+        "Switch between Samsung devices signed in to the same account": "Переключение между устройствами Samsung с одним аккаунтом"
+    },
+    "The headset did not answer": {
+        "The headset did not answer": "Наушники не ответили"
+    },
+    "The headset is busy, try again": {
+        "The headset is busy, try again": "Наушники заняты, попробуйте ещё раз"
+    },
+    "The headset refused the change": {
+        "The headset refused the change": "Наушники не приняли изменение"
+    },
+    "The plugin talks to the headset through a small Python helper and reads device details from BlueZ with busctl (part of systemd). Install python3, then re-enable the plugin.": {
+        "The plugin talks to the headset through a small Python helper and reads device details from BlueZ with busctl (part of systemd). Install python3, then re-enable the plugin.": "Плагин управляет наушниками через небольшую программу на Python и читает данные устройств из BlueZ через busctl (входит в systemd). Установите python3 и снова включите плагин."
+    },
+    "This headset has no further settings.": {
+        "This headset has no further settings.": "Других настроек у этих наушников нет."
+    },
+    "Touch controls": {
+        "Touch controls": "Сенсорное управление"
+    },
+    "Transparency": {
+        "Transparency": "Прозрачность"
+    },
+    "Treble": {
+        "Treble": "Высокие"
+    },
+    "Treble boost": {
+        "Treble boost": "Усиление высоких"
+    },
+    "Triple pinch": {
+        "Triple pinch": "Тройное сжатие"
+    },
+    "Triple press": {
+        "Triple press": "Тройное нажатие"
+    },
+    "Unavailable while LDAC is on": {
+        "Unavailable while LDAC is on": "Недоступно при включённом LDAC"
+    },
+    "Voice assistant": {
+        "Voice assistant": "Ассистент"
+    },
+    "Voice prompts": {
+        "Voice prompts": "Голосовые подсказки"
+    },
+    "Volume": {
+        "Volume": "Громкость"
+    },
+    "Wear detection": {
+        "Wear detection": "Пауза при снятии"
+    },
+    "What a long pinch on each bud does": {
+        "What a long pinch on each bud does": "Что делает долгое сжатие на каждом наушнике"
+    },
+    "What the noise-control button on the headset does": {
+        "What the noise-control button on the headset does": "Что делает кнопка шумоподавления на наушниках"
+    },
+    "≈%1 kbps": {
+        "≈%1 kbps": "≈%1 кбит/с"
+    },
+    "≈%1 of %2 kbps": {
+        "≈%1 of %2 kbps": "≈%1 из %2 кбит/с"
+    },
+    "中文": {
+        "中文": "中文"
+    }
+}
