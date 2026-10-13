@@ -161,10 +161,58 @@ Rectangle {
         property var lastTx: null
         readonly property string procId: "headphones.tx." + Math.floor(Math.random() * 1e9)
 
+        // The D-Bus bridge hands byte arrays over as base64. DMS's own decoder
+        // (BluetoothService.bytesFromDbusValue) mangles bytes above 0x7F, which
+        // turns LDAC into "VENDOR", so decode here.
+        function decodeBytes(value) {
+            if (Array.isArray(value))
+                return value.map(v => Number(v) & 0xFF);
+            if (typeof value !== "string")
+                return [];
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+            const bytes = [];
+            let buffer = 0;
+            let bits = 0;
+            for (const character of value.replace(/=+$/, "")) {
+                const index = alphabet.indexOf(character);
+                if (index < 0)
+                    return [];
+                buffer = (buffer << 6 | index) & 0xFFFFFF;
+                bits += 6;
+                if (bits >= 8) {
+                    bits -= 8;
+                    bytes.push(buffer >> bits & 0xFF);
+                }
+            }
+            return bytes;
+        }
+
+        // A2DP codec ids, and vendor id + codec id for vendor codecs (0xFF)
+        function codecName(codec, bytes) {
+            if (codec !== 0xFF)
+                return ({
+                        "0": "SBC",
+                        "1": "MPEG12",
+                        "2": "AAC",
+                        "4": "ATRAC"
+                    })[codec] ?? "";
+            if (bytes.length < 6)
+                return "VENDOR";
+            const vendor = (bytes[0] | bytes[1] << 8 | bytes[2] << 16 | bytes[3] << 24) >>> 0;
+            const id = bytes[4] | bytes[5] << 8;
+            if (vendor === 0x012D && id === 0x00AA)
+                return "LDAC";
+            if (vendor === 0x00D7 && id === 0x0024)
+                return "APTX_HD";
+            if ((vendor === 0x004F && id === 0x0001) || (vendor === 0x000A && id === 0x0002))
+                return "APTX";
+            return "VENDOR";
+        }
+
         function codecLabel(props) {
             const codec = Number(props.Codec);
-            const bytes = BluetoothService.bytesFromDbusValue(props.Configuration);
-            const name = BluetoothService.codecNameFromBluez(codec, props.Configuration);
+            const bytes = decodeBytes(props.Configuration);
+            const name = codecName(codec, bytes);
             maxKbps = name === "AAC" && bytes.length >= 6 ? Math.round((((bytes[3] & 0x7F) << 16) | (bytes[4] << 8) | bytes[5]) / 1000) : 0;
             if (name === "LDAC" && bytes.length > 6) {
                 const rate = ({
