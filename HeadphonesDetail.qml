@@ -156,7 +156,6 @@ Rectangle {
         id: codecInfo
 
         property string text: ""
-        property string transportPath: ""
         // AAC states its bitrate ceiling in the codec configuration
         property int maxKbps: 0
         property var lastTx: null
@@ -166,6 +165,7 @@ Rectangle {
             const codec = Number(props.Codec);
             const bytes = BluetoothService.bytesFromDbusValue(props.Configuration);
             const name = BluetoothService.codecNameFromBluez(codec, props.Configuration);
+            maxKbps = name === "AAC" && bytes.length >= 6 ? Math.round((((bytes[3] & 0x7F) << 16) | (bytes[4] << 8) | bytes[5]) / 1000) : 0;
             if (name === "LDAC" && bytes.length > 6) {
                 const rate = ({
                         "32": "44.1",
@@ -175,37 +175,23 @@ Rectangle {
                     })[bytes[6] & 0x3C];
                 return rate ? "LDAC · " + rate + " " + detail.widget.tr("kHz") : "LDAC";
             }
-            maxKbps = name === "AAC" && bytes.length >= 6 ? Math.round((((bytes[3] & 0x7F) << 16) | (bytes[4] << 8) | bytes[5]) / 1000) : 0;
             return name ? BluetoothService.getCodecInfo(name).name : "";
         }
 
-        function findTransport(done) {
+        // Read the transport the way DMS's own Bluetooth panel does: the object
+        // list carries the codec configuration bytes that tell LDAC from other
+        // vendor codecs (a plain property read does not deliver them).
+        function update() {
             const devicePath = detail.btDevice?.dbusPath ?? "";
             if (!devicePath || !BluetoothService.dbusBridgeAvailable) {
-                done("");
+                text = "";
                 return;
             }
             DMSService.dbusCall("system", "org.bluez", "/", "org.freedesktop.DBus.ObjectManager", "GetManagedObjects", [], response => {
                 const objects = response.result?.values?.[0] ?? {};
-                done(Object.keys(objects).find(path => path.startsWith(devicePath + "/") && objects[path]["org.bluez.MediaTransport1"]) ?? "");
-            });
-        }
-
-        function update() {
-            if (!transportPath) {
-                findTransport(path => {
-                    transportPath = path;
-                    if (path)
-                        update();
-                    else
-                        text = "";
-                });
-                return;
-            }
-            DMSService.dbusGetAllProperties("system", "org.bluez", transportPath, "org.bluez.MediaTransport1", response => {
-                const props = response.result?.values?.[0] ?? response.result ?? null;
+                const path = Object.keys(objects).find(p => p.startsWith(devicePath + "/") && objects[p]["org.bluez.MediaTransport1"]);
+                const props = path ? objects[path]["org.bluez.MediaTransport1"] : null;
                 if (!props || props.Codec === undefined) {
-                    transportPath = "";
                     text = "";
                     return;
                 }
@@ -247,7 +233,6 @@ Rectangle {
         onRunningChanged: {
             if (!running) {
                 codecInfo.lastTx = null;
-                codecInfo.transportPath = "";
             }
         }
         onTriggered: codecInfo.update()
